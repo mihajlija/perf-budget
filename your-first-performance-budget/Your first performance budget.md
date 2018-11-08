@@ -1,6 +1,10 @@
 # Your first performance budget
 
-When you set a personal, business or family budget, you are setting a limit to your spending and making sure you stay within it. Performance budgets work in the same way, but for metrics that affect website performance. With a performance budget established and enforced you can be sure that your site will render as quickly as possible. This will provide a better experience for your visitors and positively impact business metrics.Here's how to define your first performance budget in a few simple steps.
+When you set a personal, business or family budget, you are setting a limit to your spending and making sure you stay within it. Performance budgets work in the same way, but for metrics that affect website performance. 
+
+With a performance budget established and enforced you can be sure that your site will render as quickly as possible. This will provide a better experience for your visitors and positively impact business metrics.
+
+Here's how to define your first performance budget in a few simple steps.
 
 ## Preliminary analysis 
 
@@ -11,18 +15,16 @@ After you identify your key pages, it’s time to analyze them. First, we’ll f
 Under the Audits panel in Chrome DevTools, you’ll find [Lighthouse](https://developers.google.com/web/tools/lighthouse/). Run audits on each page in a [Guest window](https://support.google.com/chrome/answer/6130773?co=GENIE.Platform%3DDesktop&hl=en) to record these two times: 
 
 * [First Contentful Paint (FCP)](https://developers.google.com/web/tools/lighthouse/audits/first-contentful-paint)
-
 * [Time to Interactive](https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive)[ (TTI)](https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive)
 
-*Note: Using a Guest window gives you a clean testing environment without any Chrome extensions that could interfere with the audit*
+<div class="aside note">Note: Using a Guest window gives you a clean testing environment without any Chrome extensions that could interfere with the audit</div>
 
-![image alt text](image_0.png)
-
-*Lighthouse panel in Chrome DevTools*
+![Lighthouse panel in Chrome DevTools](./lighthouse-audits-panel.png)
 
 Let’s take a highly specialized search engine, doggos.io, as an example. Doggos.io aims to index all dog-related things on the internet, and its most important pages are the home and results pages. Here are the FCP and TTI numbers measured for the site on desktop and mobile.
 
 <table>
+<caption>Desktop analysis of doggos.io</caption>
   <tr>
     <td>Desktop</td>
     <td>FCP</td>
@@ -42,7 +44,6 @@ Let’s take a highly specialized search engine, doggos.io, as an example. Doggo
 </table>
 
 
-*Desktop analysis of doggos.io*
 
 <table>
   <tr>
@@ -65,16 +66,14 @@ Let’s take a highly specialized search engine, doggos.io, as an example. Doggo
 
 *Mobile analysis of doggos.io*
 
-## **Competitive analysis**
+## Competitive analysis
 
 Once you’ve analyzed your own site, it’s time to analyze your competitors’ sites. Comparing results from websites similar to yours is a great way to figure out a performance budget. Whether you are working on an established project or starting from scratch, this is an important step. You get competitive advantage when you are faster than your competitors.
 
 If you are not sure which sites to look at, here are a few tools to try:
 
 1. Google search’s "related:" keyword 
-
 2. [Alexa’s similar sites](https://www.alexa.com/find-similar-sites) feature[ ](https://www.alexa.com/find-similar-sites)
-
 3. [SimilarWeb](https://www.similarweb.com)
 
 ![image alt text](image_1.png)
@@ -184,12 +183,11 @@ For doggos.io, a revised budget could look like this:
 A solid performance budget combines different types of metrics. We’ve already defined the budget for milestone timings and now we’ll add two more to the mix:
 
 * quantity-based metrics
-
 * rule-based metrics
 
 ### Budget for quantity-based metrics
 
-Whatever total page weight number you come up with, try to deliver** under 170 KB of ****[critical-pat**h](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/)** resources** (compressed/minified). This guarantees your website will be fast even on [inexpensive ](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/)[devices and slow 3G](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/). 
+Whatever total page weight number you come up with, try to deliver** under 170 KB of **[critical-path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/) resources** (compressed/minified). This guarantees your website will be fast even on [inexpensive devices and slow 3G](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/). 
 
 You can have a bigger budget for the desktop experience, but don’t go wild. The median page weight on both desktop and mobile is over 1MB according to the [HTTP Archive](https://httparchive.org/reports/page-weight) data for the last year. To get a performant website you have to aim well below these median numbers.
 
@@ -243,7 +241,7 @@ Here are a few examples based on TTI budgets:
 </table>
 
 
-*Note: The recommended sizes are for the critical-path resources *
+<div class="aside note">Note: The recommended sizes are for the critical-path resources</div>
 
 Defining a budget based on quantity metrics is a tricky business. An e-commerce website with loads of product photos is very different from a news portal which is mostly text. If you have ads or analytics on your site, that increases the amount of Javascript you’re shipping. 
 
@@ -255,7 +253,7 @@ Once you have a working website, check how you are doing on user-centric perform
 
 Very effective rule-based metrics are [Lighthouse](https://developers.google.com/web/tools/lighthouse/) scores. Lighthouse grades your app in 5 categories and one of those is performance. Performance scores are calculated based on[ 5 different metrics](https://developers.google.com/web/tools/lighthouse/scoring#perf-audits), including First Contentful Paint and Time to Interactive. 
 
-When you try to build a great site, **set Lighthouse performance score budget to at least 85 **(out of 100)**.**** **Use [Lighthouse CI](https://github.com/ebidel/lighthouse-ci) to enforce it on pull-requests.
+When you try to build a great site, **set Lighthouse performance score budget to at least 85 (out of 100)**. Use [Lighthouse CI](https://github.com/ebidel/lighthouse-ci) to enforce it on pull-requests.
 
 ## Prioritize 
 
