@@ -29,63 +29,46 @@ To get started you’ll need an account. Once you’ve taken care of that [creat
 
 You need [Firebase CLI](https://firebase.google.com/docs/cli/) to deploy the app. Even if you already have it installed, it's a good practice to frequently update the CLI to the latest version by running:
 
-<table>
-  <tr>
-    <td>npm install -g firebase-tools</td>
-  </tr>
-</table>
+<pre class="devsite-terminal devsite-click-to-copy">npm install -g firebase-tools </pre>
 
 
 Authorize the Firebase CLI by running:
 
-<table>
-  <tr>
-    <td>firebase login</td>
-  </tr>
-</table>
+<pre class="devsite-terminal devsite-click-to-copy">firebase login</pre>
 
 
 Now initialize the project:
 
-<table>
-  <tr>
-    <td>firebase init</td>
-  </tr>
-</table>
+<pre class="devsite-terminal devsite-click-to-copy">firebase init</pre>
 
 
-Select hosting feature, the project that you’ve created in the Firebase console and type in "public" as the default directory. Say no to single page application prompt and no to overwriting index.html. This creates a firebase.json configuration file in the root of your project directory.
+Select hosting feature, the project that you’ve created in the Firebase console and type in "public" as the default directory. Say no to single page application prompt and no to overwriting index.html. This creates a `firebase.json` configuration file in the root of your project directory.
 
 Congrats, you’re ready to deploy! Run:
 
-<table>
-  <tr>
-    <td>firebase deploy</td>
-  </tr>
-</table>
+<pre class="devsite-terminal devsite-click-to-copy">firebase deploy</pre>
 
 
 In a split second, you’ll have a live app. 
 
-2. Setting up Travis
+## 3. Setting up Travis
 
-### **Travis newbie **
+### Travis newbie
 
 You’ll need to [register an account](https://travis-ci.com) on Travis and activate Github Apps integration. 
 
-### **If you already have an account** 
+### If you already have an account 
 
 Go to Settings, hit the Sync account button and make sure your project repo is listed on Travis. 
 
 To kick-off continuous integration we need two things:
 
-1. To have a **.travis.yml** file in the root directory
+1. To have a `.travis.yml` file in the root directory
 
 2. To trigger a build by doing a regular old git push
 
-<table>
-  <tr>
-    <td>language: node_js
+<pre class="prettyprint">
+language: node_js
 node_js:
  - "8.1.3"
 install:
@@ -94,17 +77,14 @@ before_script:
  - npm install -g firebase-tools
 script:
  - webpack</td>
-  </tr>
-</table>
+</pre>
 
-
- 
 
 We’ve already prepared the YAML file that tells Travis to install all the dependencies and build your app. Now it’s your turn to** push the example app to your own Github repository**.
 
 Go to Travis dashboard and if everything is cool you’ll see your build go from yellow to green in a couple of minutes. 🎉
 
-3. Automate Firebase deployment with Travis 
+## 4. Automate Firebase deployment with Travis 
 
 In Step 2 we’ve logged in our Firebase account and deployed the app from CLI with firebase deploy. In order for Travis to deploy our app to Firebase, we have to authorize it somehow. How do we do that? With a Firebase token 🗝️🔥
 
@@ -112,12 +92,7 @@ In Step 2 we’ve logged in our Firebase account and deployed the app from CLI w
 
 To generate the token run this command: 
 
-<table>
-  <tr>
-    <td>firebase login:ci</td>
-  </tr>
-</table>
-
+<pre class="devsite-terminal devsite-click-to-copy">firebase login:ci</pre>
 
 It will open a new tab so Firebase can verify you. After that, look back at the console and you’ll see your freshly minted token. Copy it and go back to Travis.
 
@@ -131,25 +106,23 @@ Paste the token in the value field, name the variable FIREBASE_TOKEN and add it.
 
 We just need this one line to tell Travis to deploy our app after every successful build. Add it to the end of your .travis.yml. 🔚
 
-<table>
-  <tr>
-    <td>after_sucess:
-   - firebase deploy --token $FIREBASE_TOKEN --non-interactive</td>
-  </tr>
-</table>
+<pre class="prettyprint">
+after_success:
+   - firebase deploy --token $FIREBASE_TOKEN --non-interactive
+</pre>
 
 
 Let’s push this change to Github and wait for our first automated deployment. If you take a look at your Travis log, it should soon say ✔️ Deploy complete!
 
 Now whenever you make new changes to your app, they will be automatically deployed to Firebase.
 
-4. Setting up Lighthouse CI 
+## 5. Setting up Lighthouse CI 
 
 ### Befriend Lighthouse bot
 
 Lighthouse CI has its very own friendly bot that updates you on your app’s Lighthouse scores. It just needs an invitation to your repo. 
 
-On GitHub, go to your project’s settings and **add lighthousebot as your collaborator (**Settings>Collaborators**)**. Approving these requests is a manual process, it doesn’t always happen instantly so make sure lighthousebot has the collaborator status before you start testing.
+On GitHub, go to your project’s settings and **add lighthousebot as your collaborator** (Settings>Collaborators). Approving these requests is a manual process, it doesn’t always happen instantly so make sure lighthousebot has the collaborator status before you start testing.
 
 ![image alt text](image_3.png)
 
@@ -159,54 +132,43 @@ On Travis, add this key as an environment variable and name it LIGHTHOUSE_KEY.
 
 ![image alt text](image_4.jpg)
 
-*Tip: You can reuse this same key for other projects *
+<div class="aside note">Tip: You can reuse this same key for other projects</div>
 
 ### Add Lighthouse CI to your project
 
 Next, add Lighthouse CI to your project by running:
 
-<table>
-  <tr>
-    <td> npm i --save-dev https://github.com/ebidel/lighthouse-ci</td>
-  </tr>
-</table>
+<pre class="devsite-terminal devsite-click-to-copy"> npm i --save-dev https://github.com/ebidel/lighthouse-ci</pre>
 
 
-And add this bit to your  package.json:
+And add this bit to your `package.json`:
 
-<table>
-  <tr>
-    <td>"scripts": {
+<pre class="prettyprint">
+"scripts": {
   "lh": "lighthouse-ci"
-}</td>
-  </tr>
-</table>
+}
+</pre>
 
 
 ### Add Lighthouse CI to your Travis configuration
 
 For our final trick, let’s test the performance of our app after every pull request!
 
-In .travis.yml add another step in after_success:
+In `.travis.yml` add another step in after_success:
 
-<table>
-  <tr>
-    <td>after_success:
+<pre class="prettyprint">
+after_success:
  - firebase deploy --token $FIREBASE_TOKEN --non-interactive
- - npm run lh -- https://staging.example.com</td>
-  </tr>
-</table>
-
+ - npm run lh -- https://staging.example.com
+</pre>
 
 It will run a Lighthouse audit on the given URL, so replace https://staging.example.com with the URL of your app (that’s your-app-123.firebaseapp.com).
 
 We’ve set our standards high and won’t accept any changes to the app that bring the performance score lower than 95. Let’s tweak our setup to include that.
 
-<table>
-  <tr>
-    <td>- npm run lh -- --perf=95 https://staging.example.com </td>
-  </tr>
-</table>
+<pre class="prettyprint">
+- npm run lh -- --perf=95 https://staging.example.com 
+</pre>
 
 
 ### Make a pull request to trigger Lighthouse CI on Travis
@@ -227,26 +189,22 @@ Our performance score is great, we are under budget and the check has passed!
 
 Remember how Lighthouse tests 5 different categories? You can enforce scores for any of those with Lighthouse CI flags:
 
- --perf (performance)
+ `--perf` (performance)
 
- --pwa (progressive web app score)
+ `--pwa` (progressive web app score)
 
- --a11y ( accessibility score)
+ `--a11y` ( accessibility score)
 
- --bp  (best practices score)
+ `--bp` (best practices score)
 
- --seo (SEO score)
+ `--seo` (SEO score)
 
 Example: 
 
-<table>
-  <tr>
-    <td>   npm run lh --perf=93 --seo=100 https://staging.example.com</td>
-  </tr>
-</table>
+<pre class="prettyprint"> npm run lh --perf=93 --seo=100 https://staging.example.com</pre>
 
 
 This will fail the PR if the performance score drops below 93 **or** the SEO score drops below 100. 
 
-You can also choose not to get Lighthouse bot’s comments with the --no-comment option.
+You can also choose not to get Lighthouse bot’s comments with the `--no-comment` option.
 
