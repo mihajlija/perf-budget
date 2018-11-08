@@ -43,9 +43,8 @@ Let’s take a highly specialized search engine, doggos.io, as an example. Doggo
   </tr>
 </table>
 
-
-
 <table>
+<caption>Mobile analysis of doggos.io</caption>
   <tr>
     <td>Mobile</td>
     <td>FCP</td>
@@ -63,9 +62,6 @@ Let’s take a highly specialized search engine, doggos.io, as an example. Doggo
   </tr>
 </table>
 
-
-*Mobile analysis of doggos.io*
-
 ## Competitive analysis
 
 Once you’ve analyzed your own site, it’s time to analyze your competitors’ sites. Comparing results from websites similar to yours is a great way to figure out a performance budget. Whether you are working on an established project or starting from scratch, this is an important step. You get competitive advantage when you are faster than your competitors.
@@ -73,12 +69,15 @@ Once you’ve analyzed your own site, it’s time to analyze your competitors’
 If you are not sure which sites to look at, here are a few tools to try:
 
 1. Google search’s "related:" keyword 
-2. [Alexa’s similar sites](https://www.alexa.com/find-similar-sites) feature[ ](https://www.alexa.com/find-similar-sites)
+2. [Alexa’s similar sites](https://www.alexa.com/find-similar-sites) feature
 3. [SimilarWeb](https://www.similarweb.com)
 
-![image alt text](image_1.png)
-
-*How to find similar websites on Google search*
+<figure>
+  <img src="./google-search-related-keyword.png" alt="Screenshot of Google search with the related keyword">
+  <figcaption>
+    How to find similar websites on Google search
+  </figcaption>
+</figure>
 
 For a realistic picture, try to **find 10 or so competitors**. 
 
@@ -89,6 +88,7 @@ Our niche search engine in this example has a handful of competitors and we’ll
 Create a chart with FCP and TTI times for all the similar websites and highlight the fastest in the bunch. A chart like this one gives you a clearer picture of how your website is doing compared to the competition.
 
 <table>
+<caption>Competitive analysis of doggos.io on 3G network</caption>
   <tr>
     <td>Site/Homepage</td>
     <td>FCP</td>
@@ -116,16 +116,17 @@ Create a chart with FCP and TTI times for all the similar websites and highlight
   </tr>
 </table>
 
-
-*Competitive analysis of doggos.io on 3G network *
-
-![image alt text](image_2.jpg)
-
-*Doggos.io seems to be doing okay on the FCP metric but seriously lagging behind in TTI *
+<figure>
+  <img src="./doggo-at-a-computer.png" alt="Doggo at a computer">
+  <figcaption>
+    Doggos.io seems to be doing okay on the FCP metric but seriously lagging behind in TTI
+  </figcaption>
+</figure>
 
 There’s room for improvement and a good guideline for that is the [20% rule](https://www.smashingmagazine.com/2015/09/why-performance-matters-the-perception-of-time/#the-need-for-performance-optimization-the-20-rule). Research states that users recognize a difference in response times when it’s greater than 20%. This means that if you want to be noticeably better than the best comparable site, you have to **be at least 20% faster**. 
 
 <table>
+<caption>Performance budget that would get doggos.com ahead of the competition</caption>
   <tr>
     <td>Measure
 </td>
@@ -144,14 +145,12 @@ There’s room for improvement and a good guideline for that is the [20% rule](h
   </tr>
 </table>
 
-
-*Performance budget** that would get doggos.com ahead of the competition*
-
 If you are trying to optimize an existing site that goal may seem impossible to reach. This is not a sign for you to give up. Start with small steps and set a budget at 20% faster than your current speed. Keep optimizing from there. 
 
 For doggos.io, a revised budget could look like this:
 
 <table>
+<caption>Revised doggos.io performance budget</caption>
   <tr>
     <td>Measure
 </td>
@@ -175,10 +174,7 @@ For doggos.io, a revised budget could look like this:
   </tr>
 </table>
 
-
-*Revised doggos.io performance budget*
-
-## **Combine different metrics**
+## Combine different metrics
 
 A solid performance budget combines different types of metrics. We’ve already defined the budget for milestone timings and now we’ll add two more to the mix:
 
@@ -251,7 +247,7 @@ Once you have a working website, check how you are doing on user-centric perform
 
 ### Budget for rule-based metrics
 
-Very effective rule-based metrics are [Lighthouse](https://developers.google.com/web/tools/lighthouse/) scores. Lighthouse grades your app in 5 categories and one of those is performance. Performance scores are calculated based on[ 5 different metrics](https://developers.google.com/web/tools/lighthouse/scoring#perf-audits), including First Contentful Paint and Time to Interactive. 
+Very effective rule-based metrics are [Lighthouse](https://developers.google.com/web/tools/lighthouse/) scores. Lighthouse grades your app in 5 categories and one of those is performance. Performance scores are calculated based on [5 different metrics](https://developers.google.com/web/tools/lighthouse/scoring#perf-audits), including First Contentful Paint and Time to Interactive. 
 
 When you try to build a great site, **set Lighthouse performance score budget to at least 85 (out of 100)**. Use [Lighthouse CI](https://github.com/ebidel/lighthouse-ci) to enforce it on pull-requests.
 
@@ -261,9 +257,12 @@ Ask yourself what level of interaction you expect on your site. If it’s a news
 
 Find out exactly what part of your audience browses on desktop vs. on mobile devices and prioritize accordingly. One way to figure this out is to check what your audience is doing on competitors’ websites, through the [Chrome User Experience report](https://developers.google.com/web/updates/2018/08/chrome-ux-report-dashboard) dashboard. 
 
-![image alt text](image_3.png)
-
-*Device distribution data from Chrome User Experience report*
+<figure>
+  <img src="./chrome-user-experience-report.png" alt="Device distribution data from Chrome User Experience report">
+  <figcaption>
+    Device distribution data from Chrome User Experience report
+  </figcaption>
+</figure>
 
 ## Next steps
 
