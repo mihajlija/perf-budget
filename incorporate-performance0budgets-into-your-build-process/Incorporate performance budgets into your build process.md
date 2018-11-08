@@ -74,9 +74,9 @@ You’ll get the most value out of bundlesize if you integrate it with a CI to a
 
 bundlesize check status on Github 
 
-You may have a fast app today, but adding new code can often change this. Checking pull requests** **with bundlesize will help you avoid performance regressions. Bootstrap, Tinder, Trivago and many others use it to keep their budgets in check.
+You may have a fast app today, but adding new code can often change this. Checking pull requests with bundlesize will help you avoid performance regressions. Bootstrap, Tinder, Trivago and many others use it to keep their budgets in check.
 
-With bundlesize, it’s possible to set thresholds for each file separately in package.json. This is especially useful if you are code-splitting a bundle in your application. 
+With bundlesize, it’s possible to set thresholds for each file separately in `package.json`. This is especially useful if you are code-splitting a bundle in your application. 
 
 <pre class="prettyprint">
 "bundlesize": [
@@ -106,13 +106,13 @@ Lighthouse scores 💯
 
 It’s sometimes simpler to keep an eye on a single number than individual asset budgets and Lighthouse performance score takes a lot of things into account.
 
-[Lighthouse CI](https://github.com/ebidel/lighthouse-ci) currently integrates only with Travis and runs an audit after you deploy a site to staging server. It enforces budgets based on any of the five scores. In .travis.yml file set targets with --perf, --pwa,  --a11y, --bp or --seo options. Aim to stay in the green zone with a score of at least 80.
+[Lighthouse CI](https://github.com/ebidel/lighthouse-ci) currently integrates only with Travis and runs an audit after you deploy a site to staging server. It enforces budgets based on any of the five scores. In .travis.yml file set targets with `--perf`, `--pwa`,  `--a11y`, `--bp` or `--seo` options. Aim to stay in the green zone with a performance score of at least 80.
 
 <pre class="prettyprint">
 after_success:
   - ./deploy.sh # Deploy the PR changes to staging server
-  - npm run lh -- --perf=96 --pwa=100 https://staging.example.com # Run Lighthouse test
-<pre class="prettyprint">
+  - npm run lh -- --perf=96 https://staging.example.com # Run Lighthouse test
+</pre>
 
 If the scores for a pull request fall below the threshold you’ve set, **Lighthouse CI will prevent pull request from being merged**. ⛔
 
