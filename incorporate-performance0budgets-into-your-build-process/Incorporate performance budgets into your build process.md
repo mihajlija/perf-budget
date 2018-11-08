@@ -10,15 +10,21 @@ Turn on[ performance hints](https://webpack.js.org/configuration/performance/) i
 
 After build step, Webpack outputs a color-coded list of assets and their sizes. Anything over budget is highlighted in yellow. 
 
-![image alt text](image_0.png)
-
-The highlighted bundle.js is bigger than your budget
+<figure>
+  <img src="./webpack-output.png" alt="Webpack output highlighting bundle.js">
+  <figcaption>
+    The highlighted bundle.js is bigger than your budget
+  </figcaption>
+</figure>
 
 The default limit for both assets and entry-points is 250 KB (or 244[ KiB](https://en.wikipedia.org/wiki/Kibibyte)).
 
-![image alt text](image_1.jpg)
-
-Webpack warning you about bulky JS bundle ⚠️
+<figure>
+  <img src="./webpack-warning.jpg" alt="Webpack warning you about bulky JS bundle">
+  <figcaption>
+    Webpack warning you about bulky JS bundle ⚠️
+  </figcaption>
+</figure>
 
 You can set your own targets (measured in bytes) in the configuration file:
 
@@ -36,14 +42,18 @@ You can set your own targets (measured in bytes) in the configuration file:
 };
 </pre>
 
-
 The numbers are compared against **uncompressed asset sizes**. This is not an ideal situation, since most hosting platforms, CDNs and reverse proxy servers compress assets by default. You can give yourself some wiggle room during development, but keep in mind that compression speeds up only the transfer. Browsers still have to parse uncompressed files and this [parsing cost is not small](https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4), especially on mobile devices.
 
-Bonus feature: Webpack won’t only warn you, it will give you a recommendation on how to downsize your bundles. You can learn more about the recommended techniques on [Web Fundamentals](https://developers.google.com/web/fundamentals/performance/webpack/).
+<div class="aside note">Bonus feature: Webpack won’t only warn you, it will give you a recommendation on how to downsize your bundles. You can learn more about the recommended techniques on [Web Fundamentals](https://developers.google.com/web/fundamentals/performance/webpack/).</div>
 
-![image alt text](image_2.jpg)
 
-Webpack performance optimization recommendation 💁
+<figure>
+  <img src="./webpack-recommendation.jpg" alt="Webpack performance optimization recommendation">
+  <figcaption>
+    Webpack performance optimization recommendation 💁
+  </figcaption>
+</figure>
+
 
 ## Bundlesize
 
@@ -55,24 +65,35 @@ Run [bundlesize CLI](https://github.com/siddharthkp/bundlesize#cli) by specifyin
 
 <pre class="prettyprint">bundlesize -f "dist/bundle.js" -s 170kB</pre>
 
-
 Bundlesize will output color-coded test results in one line.
 
-![image alt text](image_3.png)
+<figure>
+  <img src="./bundlesize-fail.png" alt="Failing bundlesize CLI test">
+  <figcaption>
+    Failing bundlesize CLI test ❌
+  </figcaption>
+</figure>
 
-Failing bundlesize CLI test ❌
 
-![image alt text](image_4.png)
+<figure>
+  <img src="./bundlesize-pass.png" alt="Passing bundlesize CLI test">
+  <figcaption>
+    Passing bundlesize CLI test ✔️
+  </figcaption>
+</figure>
 
-Passing bundlesize CLI test ✔️
 
 ### Bundlesize for CI 
 
 You’ll get the most value out of bundlesize if you integrate it with a CI to automatically enforce size limits on pull requests. **If bundlesize test fails, that pull request will not be merged.** It currently works with[ Travis CI](https://travis-ci.org/),[ CircleCI](https://circleci.com/),[ Wercker](http://www.wercker.com/), and[ Drone](http://readme.drone.io/).
 
-![image alt text](image_5.jpg)
+<figure>
+  <img src="./bundlesize-check.jpg" alt="bundlesize check status on Github">
+  <figcaption>
+    bundlesize check status on Github 
+  </figcaption>
+</figure>
 
-bundlesize check status on Github 
 
 You may have a fast app today, but adding new code can often change this. Checking pull requests with bundlesize will help you avoid performance regressions. Bootstrap, Tinder, Trivago and many others use it to keep their budgets in check.
 
@@ -91,18 +112,27 @@ With bundlesize, it’s possible to set thresholds for each file separately in `
 ]
 </pre>
 
-Setting different budgets per-script with bundlesize
+<div class="aside note">Setting different budgets per-script with bundlesize<div>
 
 By default, **it tests gzipped asset sizes**. You can use the compression option to switch to [brotli compression](https://css-tricks.com/brotli-static-compression/) or turn it off completely. 
 
-## Lighthouse CI![image alt text](image_6.png)
+## Lighthouse CI
+
+<figure>
+  <img src="./lighthouse-travis.png" alt="Lighthouse CI">
+  <figcaption>
+  </figcaption>
+</figure>
+
 
 [Lighthouse](https://developers.google.com/web/tools/lighthouse/) is an auditing tool that tests sites in a few key areas — performance, accessibility, best practices and how well your site performs as a progressive web application. You can run it in Chrome DevTools, from the command line, or as a Node module. 
  
-
-![image alt text](image_7.jpg)
-
-Lighthouse scores 💯
+<figure>
+  <img src="./lighthouse-scores.jpg" alt="Lighthouse scores 💯">
+  <figcaption>
+    Lighthouse scores 💯 
+  </figcaption>
+</figure>
 
 It’s sometimes simpler to keep an eye on a single number than individual asset budgets and Lighthouse performance score takes a lot of things into account.
 
@@ -116,15 +146,22 @@ after_success:
 
 If the scores for a pull request fall below the threshold you’ve set, **Lighthouse CI will prevent pull request from being merged**. ⛔
 
-![image alt text](image_8.png)
-
-Lighthouse CI check status on Github 
+<figure>
+  <img src="./lighthouse-check.png" alt="Lighthouse CI check status on Github">
+  <figcaption>
+    Lighthouse CI check status on Github  
+  </figcaption>
+</figure>
 
 The **Lighthouse bot** will then comment on your pull request with updated scores. This is a neat feature which encourages conversation about performance as code changes are happening.
 
-![image alt text](image_9.png)
+<figure>
+  <img src="./lighthouse-bot.png" alt="Lighthouse reporting scores on pull request">
+  <figcaption>
+    Lighthouse reporting scores on pull request 💬 
+  </figcaption>
+</figure>
 
-Lighthouse reporting scores on pull request 💬
 
 If you find your pull request blocked by a poor Lighthouse score, run an audit with [Lighthouse CLI](https://developers.google.com/web/tools/lighthouse/#cli) or in [Dev Tools](https://developers.google.com/web/tools/lighthouse/#devtools). You’ll get a report with details about bottlenecks and hints for simple optimizations.
 
@@ -150,8 +187,8 @@ If you find your pull request blocked by a poor Lighthouse score, run an audit w
     <td>✅</td>
     <td>✅</td>
     <td>
-    Checks compressed sizes
-    Enforces budgets on PRs
+        - Checks compressed sizes
+        - Enforces budgets on PRs
     </td>
     <td>Works only for PRs on GitHub</td>
   </tr>
@@ -160,13 +197,13 @@ If you find your pull request blocked by a poor Lighthouse score, run an audit w
     <td>✘</td>
     <td>✅</td>
     <td>
-    Enforces budgets on PRs 
-    Score history in PR comments
+        - Enforces budgets on PRs 
+        - Score history in PR comments
     </td>
     <td>
-    Only checks scores, no other metrics (yet)
-    Works only for PRs on GitHub
-</td>
+        - Only checks scores, no other metrics (yet)
+        - Works only for PRs on GitHub
+    </td>
   </tr>
 </table>
 
