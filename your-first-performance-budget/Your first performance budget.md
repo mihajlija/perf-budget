@@ -97,8 +97,8 @@ Create a chart with FCP and TTI times for all the similar websites and highlight
   </tr>
   <tr>
     <td>goggles.com</td>
-    <td bgcolor="yellow">880 ms</td>
-    <td bgcolor="yellow">3,150 ms</td>
+    <td bgcolor="yellow">**880 ms**</td>
+    <td bgcolor="yellow">**3,150 ms**</td>
   </tr>
   <tr>
     <td>doggos.io</td>
