@@ -6,7 +6,7 @@ Once you’ve defined a performance budget, it’s time to set up the build proc
 
 [Webpack](https://developers.google.com/web/fundamentals/performance/webpack/) is a powerful build tool for optimizing how your code is delivered to the users. It also supports setting performance budgets based on **asset size**. 
 
-Turn on[ performance hints](https://webpack.js.org/configuration/performance/) in the configuration file and Webpack will show you command line warnings or errors when your bundle size grows over the limit. It’s a great way to stay mindful about asset sizes throughout the development.
+Turn on [performance hints](https://webpack.js.org/configuration/performance/) in the configuration file and Webpack will show you command line warnings or errors when your bundle size grows over the limit. It’s a great way to stay mindful about asset sizes throughout the development.
 
 After build step, Webpack outputs a color-coded list of assets and their sizes. Anything over budget is highlighted in yellow. 
 
@@ -187,7 +187,7 @@ If you find your pull request blocked by a poor Lighthouse score, run an audit w
     <td>✅</td>
     <td>✅</td>
     <td>
-        - Checks compressed sizes
+        - Checks compressed sizes<br>
         - Enforces budgets on PRs
     </td>
     <td>Works only for PRs on GitHub</td>
@@ -197,11 +197,11 @@ If you find your pull request blocked by a poor Lighthouse score, run an audit w
     <td>✘</td>
     <td>✅</td>
     <td>
-        - Enforces budgets on PRs 
+        - Enforces budgets on PRs<br>
         - Score history in PR comments
     </td>
     <td>
-        - Only checks scores, no other metrics (yet)
+        - Only checks scores, no other metrics (yet)<br>
         - Works only for PRs on GitHub
     </td>
   </tr>
