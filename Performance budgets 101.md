@@ -1,14 +1,14 @@
-# **Performance budgets 101 **
+# Performance budgets 101
 
 Performance is an important part of the user experience and it [affects business metrics](https://wpostats.com/). It’s tempting to think that if you are a good developer you’ll end up with a performant site, but the truth is that good performance is rarely a side effect. As with most other things—to reach a goal you have to define it clearly. Start the journey by setting a **performance budget**. 
 
-## **Definition**
+## Definition
 
 A performance budget is a set of limits imposed on metrics that affect site performance. This could be the total size of a page, the time it takes to load on a mobile network, or even the number of HTTP requests that are sent. Defining a budget helps get the web performance conversation started. It serves as a point of reference for making decisions about design, technology, and adding features.
 
 Having a budget enables designers to think about the effects of high-resolution images and the number of web fonts they pick. It also helps developers compare different approaches to a problem and evaluate frameworks and libraries based on their size and [parsing cost](https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4).
 
-## **Choose ****m****etrics**
+## Choose metrics
 
 ### Quantity-based metrics ⚖️
 
@@ -44,17 +44,17 @@ Milestone timings mark events that happen during page load, such as [DOMContentL
 
 You’ll get the best results if you keep track of a combination of quantity-based and user-centric performance metrics. Focus on asset sizes in the early phases of a project and start tracking FCP and TTI as soon as possible. 
 
-## **Establish a ****b****aseline**
+## Establish a baseline
 
 The only way to really know what works best for your site is to try it—research and then test your findings. Analyze the competition to see how you stack up. 🕵️
 
 If you don’t have time for that, here are good default numbers to get you started:
 
-* Under **5**** ****s **Time to Interactive 
+* Under **5 s** Time to Interactive 
 
-* Under **170**** ****KB **of [critical-path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/) resources (compressed/minified)
+* Under **170 KB** of [critical-path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/) resources (compressed/minified)
 
-These [numbers](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/) are calculated based on real-world baseline devices and** 3G network speed**. [Over half of the internet traffic](https://www.statista.com/statistics/277125/share-of-website-traffic-coming-from-mobile-devices/) today happens on mobile networks, so you should use 3G network speed as a starting point.
+These [numbers](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/) are calculated based on real-world baseline devices and **3G network speed**. [Over half of the internet traffic](https://www.statista.com/statistics/277125/share-of-website-traffic-coming-from-mobile-devices/) today happens on mobile networks, so you should use 3G network speed as a starting point.
 
 ### Examples of budgets
 
@@ -68,7 +68,7 @@ You should have a budget in place for different types of pages on your site sinc
 
 * Our blog must score > 80 on Lighthouse performance audits
 
-## **Add ****p****erformance ****b****udgets to ****y****our ****b****uild ****p****rocess**
+## Add performance budgets to your build process**
 
 ## ![image alt text](image_1.png)
 
@@ -88,11 +88,11 @@ If something goes over a defined threshold, you can either:
 
 * Not add the new feature or asset ✋⛔
 
-## **Track ****p****erformance **
+## Track performance 
 
 Making sure your site is fast enough means you have to keep measuring after the initial launch. Monitoring these metrics over time and [getting data from real users](https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing/) will show you how changes in performance impact key business metrics. 
 
-## **Next ****s****tep****s**
+## Next steps
 
 The purpose of a performance budget is to make sure you focus on performance throughout a project and setting it early will help prevent backtracking later. It should be the point of reference for helping you figure out what to include on your website. The main idea is to set goals so that you can better balance performance without harming functionality or user experience.🎯
 
