@@ -25,11 +25,8 @@ These metrics are useful in the early stages of development because they highlig
 We’ve already mentioned a few things you can include in a performance budget such as page weight and the number of HTTP requests, but you can split these up into more granular limits like:
 
 * Maximum size of images 
-
 * Maximum number of web fonts
-
 * Maximum size of scripts, including frameworks
-
 * Total number of external resources, such as third-party scripts
 
 However, these numbers don’t tell you much about the user experience. Two pages with the same number of requests or same weight can render differently depending on the order in which resources get requested. If a [critical resource](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/) like a hero image or a stylesheet on one of the pages is loaded late in the process, the users will wait longer to see something useful and perceive the page as slower. If on the other page the most important parts load quickly, they may not even notice if the rest of the page doesn't. 
@@ -59,7 +56,6 @@ The only way to really know what works best for your site is to try it—researc
 If you don’t have time for that, here are good default numbers to get you started:
 
 * Under **5 s** Time to Interactive 
-
 * Under **170 KB** of [critical-path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/) resources (compressed/minified)
 
 These [numbers](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/) are calculated based on real-world baseline devices and **3G network speed**. [Over half of the internet traffic](https://www.statista.com/statistics/277125/share-of-website-traffic-coming-from-mobile-devices/) today happens on mobile networks, so you should use 3G network speed as a starting point.
@@ -69,11 +65,8 @@ These [numbers](https://infrequently.org/2017/10/can-you-afford-it-real-world-we
 You should have a budget in place for different types of pages on your site since the content will vary. For example:
 
 * Our product page must ship less than 170 KB of JavaScript on mobile
-
 * Our search page must include less than 2 MB of images on desktop
-
 * Our home page must load and get interactive in < 5 s on slow 3G on a Moto G4 phone
-
 * Our blog must score > 80 on Lighthouse performance audits
 
 ## Add performance budgets to your build process
@@ -83,17 +76,13 @@ You should have a budget in place for different types of pages on your site sinc
 Choosing a tool for this will depend a lot on the scale of your project and resources that you can dedicate to the task. There are a few open-source tools that can help you add budgeting to your build process: 
 
 * [Webpack performance features](https://webpack.js.org/configuration/performance/)
-
 * [bundlesize](https://github.com/siddharthkp/bundlesize)
-
 * [Lighthouse CI](https://github.com/ebidel/lighthouse-ci)
 
 If something goes over a defined threshold, you can either: 
 
 * Optimize an existing feature or asset 🛠️
-
 * Remove an existing feature or asset 🗑️
-
 * Not add the new feature or asset ✋⛔
 
 ## Track performance 
@@ -104,7 +93,4 @@ Making sure your site is fast enough means you have to keep measuring after the 
 
 The purpose of a performance budget is to make sure you focus on performance throughout a project and setting it early will help prevent backtracking later. It should be the point of reference for helping you figure out what to include on your website. The main idea is to set goals so that you can better balance performance without harming functionality or user experience.🎯
 
-Link to Your first performance budget
-
-Link to Incorporate performance budgets into your build process
 
