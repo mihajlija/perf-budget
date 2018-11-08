@@ -96,8 +96,8 @@ Create a chart with FCP and TTI times for all the similar websites and highlight
   </tr>
   <tr>
     <td>goggles.com</td>
-    <td>880 ms</td>
-    <td>3,150 ms</td>
+    <td bgcolor="yellow">880 ms</td>
+    <td bgcolor="yellow">3,150 ms</td>
   </tr>
   <tr>
     <td>doggos.io</td>
@@ -117,7 +117,7 @@ Create a chart with FCP and TTI times for all the similar websites and highlight
 </table>
 
 <figure>
-  <img src="./doggo-at-a-computer.png" alt="Doggo at a computer">
+  <img src="./doggo-at-a-computer.jpg" alt="Doggo at a computer">
   <figcaption>
     Doggos.io seems to be doing okay on the FCP metric but seriously lagging behind in TTI
   </figcaption>
@@ -147,7 +147,7 @@ There’s room for improvement and a good guideline for that is the [20% rule](h
 
 If you are trying to optimize an existing site that goal may seem impossible to reach. This is not a sign for you to give up. Start with small steps and set a budget at 20% faster than your current speed. Keep optimizing from there. 
 
-For doggos.io, a revised budget could look like this:
+For doggos.io, a revised budget could look like this.
 
 <table>
 <caption>Revised doggos.io performance budget</caption>
