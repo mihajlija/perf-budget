@@ -1,3 +1,11 @@
+---
+page_type: guide
+title: Performance budgets 101
+author: mihajlija
+web_lighthouse: N/A
+wf_blink_components: N/A
+---
+
 # Performance budgets 101
 
 Performance is an important part of the user experience and it [affects business metrics](https://wpostats.com/). It’s tempting to think that if you are a good developer you’ll end up with a performant site, but the truth is that good performance is rarely a side effect. As with most other things—to reach a goal you have to define it clearly. Start the journey by setting a **performance budget**. 
@@ -26,7 +34,7 @@ We’ve already mentioned a few things you can include in a performance budget s
 
 However, these numbers don’t tell you much about the user experience. Two pages with the same number of requests or same weight can render differently depending on the order in which resources get requested. If a [critical resource](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/) like a hero image or a stylesheet on one of the pages is loaded late in the process, the users will wait longer to see something useful and perceive the page as slower. If on the other page the most important parts load quickly, they may not even notice if the rest of the page doesn't. 
 
-![image alt text](image_0.png)
+![Image of progressive page rendering based on the critical-path](progressive-page-rendering.png)
 
 This is why it’s important to keep track of another type of metrics.
 
@@ -68,9 +76,9 @@ You should have a budget in place for different types of pages on your site sinc
 
 * Our blog must score > 80 on Lighthouse performance audits
 
-## Add performance budgets to your build process**
+## Add performance budgets to your build process
 
-## ![image alt text](image_1.png)
+## ![Logos of Webpack, bundlesize and Lighthouse](performance-budgeting-tools.png)
 
 Choosing a tool for this will depend a lot on the scale of your project and resources that you can dedicate to the task. There are a few open-source tools that can help you add budgeting to your build process: 
 
