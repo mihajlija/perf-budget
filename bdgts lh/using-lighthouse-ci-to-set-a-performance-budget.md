@@ -6,7 +6,7 @@ Lighthouse grades your app in 5 categories and one of those is performance. You 
 
 Lighthouse CI integrates with Travis and by enabling its performance budget feature, you’ll be safe knowing that you won’t accidentally downgrade performance without noticing. If the scores for a pull request fall below the threshold you’ve set (e.g. < 80/100), **Lighthouse CI will prevent that pull request from being merged**.
 
-![image alt text](image_0.png)
+![Lighthouse CI](./lighthouse-ci.png)
 
 Testing performance on localhost is okay, but it’s different from how sites perform on live servers. To get a realistic picture, it’s best to deploy to a staging server. You can use any hosting service, we’ll be taking [Firebase](https://firebase.google.com/) hosting for a spin.
 
@@ -23,7 +23,7 @@ We are working with a simple app that helps you sort three numbers.
 
 To get started you’ll need an account. Once you’ve taken care of that [create a new project in Firebase console](https://console.firebase.google.com/).
 
-![image alt text](image_1.png)
+![Firebase console](./firebase-console.png)
 
 ### Deploying to Firebase
 
@@ -100,7 +100,7 @@ In your project on Travis go to More options > Settings > Environment variables.
 
 Paste the token in the value field, name the variable FIREBASE_TOKEN and add it.
 
-![image alt text](image_2.png)
+![Travis environment variables](./travis-environment-variables.png)
 
 ### Add deployment to your Travis setup
 
@@ -124,13 +124,13 @@ Lighthouse CI has its very own friendly bot that updates you on your app’s Lig
 
 On GitHub, go to your project’s settings and **add lighthousebot as your collaborator** (Settings>Collaborators). Approving these requests is a manual process, it doesn’t always happen instantly so make sure lighthousebot has the collaborator status before you start testing.
 
-![image alt text](image_3.png)
+![Lighthouse bot collaborator status](./lighthouse-bot-collaborator.png)
 
 In the meantime, you also need to add another key to your projects environment variables on Travis. [Leave your email here](https://docs.google.com/forms/d/e/1FAIpQLSdIc3QNIMn7bBMgl2cfxmmo6wGBlUpdLGxjB_ml464t9eCg_A/viewform) and the Lighthouse CI key will be delivered to your inbox. 📬
 
 On Travis, add this key as an environment variable and name it LIGHTHOUSE_KEY.
 
-![image alt text](image_4.jpg)
+![Add Lighthouse API key on Travis](./lighthouse-api-key.jpg)
 
 <div class="aside note">Tip: You can reuse this same key for other projects</div>
 
@@ -179,9 +179,9 @@ To trigger our Lighthouse CI test, let’s make a pull request.
 
 Checkout a new branch, push it to Github and make a pull request. Hang tight on that pull request page and wait for Lighthouse bot to sing! 🎤
 
-![image alt text](image_5.png)
+![Lighthouse scores](lighthouse-scores.png)
 
-![image alt text](image_6.png)
+![Github checks](github-checks.png)
 
 Our performance score is great, we are under budget and the check has passed! 
 
