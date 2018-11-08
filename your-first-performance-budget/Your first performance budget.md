@@ -79,6 +79,7 @@ If you are not sure which sites to look at, here are a few tools to try:
   </figcaption>
 </figure>
 
+
 For a realistic picture, try to **find 10 or so competitors**. 
 
 ### Budget for timing milestones
@@ -122,6 +123,7 @@ Create a chart with FCP and TTI times for all the similar websites and highlight
     Doggos.io seems to be doing okay on the FCP metric but seriously lagging behind in TTI
   </figcaption>
 </figure>
+
 
 There’s room for improvement and a good guideline for that is the [20% rule](https://www.smashingmagazine.com/2015/09/why-performance-matters-the-perception-of-time/#the-need-for-performance-optimization-the-20-rule). Research states that users recognize a difference in response times when it’s greater than 20%. This means that if you want to be noticeably better than the best comparable site, you have to **be at least 20% faster**. 
 
@@ -235,7 +237,6 @@ Here are a few examples based on TTI budgets:
     <td>2s</td>
   </tr>
 </table>
-
 
 <div class="aside note">Note: The recommended sizes are for the critical-path resources</div>
 
