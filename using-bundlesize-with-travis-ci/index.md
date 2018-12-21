@@ -5,8 +5,8 @@ author: mihajlija
 description: |
   Define performance budgets with minimal setup and enforce them as part of your development workflow using bundlesize with Travis CI.
 web_lighthouse: N/A
-web_updated_on: 2018-12-06
-web_published_on: 2018-11-05
+web_updated_on: N/A
+web_published_on: N/A
 wf_blink_components: N/A
 ---
 
@@ -20,13 +20,13 @@ Using [bundlesize](https://github.com/siddharthkp/bundlesize) with [Travis CI](h
 You can also use bundlesize with [Circle CI](https://circleci.com/), [Wrecker](https://app.wercker.com) and [Drone](https://readme.drone.io/).
 </div>
 
-To see it in action, here’s an app bundled with [webpack](https://webpack.js.org/) that lets you vote for your favorite kitty. 
+To see it in action, here’s an app bundled with [webpack](https://webpack.js.org/) that lets you [vote for your favorite kitty](https://glitch.com/edit/#!/scarce-pixie). 
 
 ![Cat voting app](cat-voting-app.png)
 
 ## Set the performance budget
 
-This Glitch already contains bundlesize. To start, click the Remix to Edit button to make the project editable.
+This [Glitch](https://glitch.com/edit/#!/scarce-pixie) already contains bundlesize. To start, click the Remix to Edit button to make the project editable.
 
 
 ![Glitch Remix button](remix-button.png)
