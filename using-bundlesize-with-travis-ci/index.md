@@ -15,20 +15,20 @@ wf_blink_components: N/A
 
 Using [bundlesize](https://github.com/siddharthkp/bundlesize) with [Travis CI](https://travis-ci.com/) lets you define performance budgets with minimal setup and enforce them as part of your development workflow. Travis CI is a service that runs tests for your app in the cloud every time you push code to GitHub. You can [configure your repository](https://help.github.com/articles/about-required-status-checks/) so that it won’t allow merging pull-requests unless the bundlesize tests have passed.
 
-![image alt text](bundlesize-check.jpg)
+![bundlesize check](bundlesize-check.jpg)
 
 Note: You can also use bundlesize with [Circle CI](https://circleci.com/), [Wrecker](https://app.wercker.com) and [Drone](https://readme.drone.io/).
 
 To see it in action, here’s an app bundled with [webpack](https://webpack.js.org/) that lets you vote for your favorite kitty. 
 
-![image alt text](cat-voting-app.png)
+![Cat voting app](cat-voting-app.png)
 
 ## Set the performance budget
 
 This Glitch already contains bundlesize. To start, click the Remix to Edit button to make the project editable.
 
 
-![image alt text](remix-button.png)
+![Glitch Remix button](remix-button.png)
 
 The main bundle of this app is in the public folder. To test its size, add the following section to the package.json file:
 
@@ -41,20 +41,23 @@ The main bundle of this app is in the public folder. To test its size, add the f
   ]
 </pre>  
 
-*Note: You can also set [different thresholds for different files](https://github.com/siddharthkp/bundlesize#1-add-the-path-and-maxsize-in-your-packagejson). This is especially useful if you are [code-splitting](https://web.dev/fast/reduce-javascript-payloads-with-code-splitting) a bundle in your application.
+<div class="aside note">
+You can also set [different thresholds for different files](https://github.com/siddharthkp/bundlesize#1-add-the-path-and-maxsize-in-your-packagejson). This is especially useful if you are [code-splitting](https://web.dev/fast/reduce-javascript-payloads-with-code-splitting) a bundle in your application.
+</div>
 
 To keep the compressed JavaScript bundle size [under the recommended limit](https://web.dev/fast/your-first-performance-budget#budget-for-quantity-based-metrics), set the performance budget to 170KB in the `maxSize` field. 
 
 Bundlesize supports [glob patterns](https://github.com/isaacs/node-glob) and the * wildcard character in the file path will match all bundle names in the public folder.
 
-*Note: By default, bundlesize tests gzipped sizes. You can use the **[compression option](https://github.com/siddharthkp/bundlesize#1-add-the-path-and-maxsize-in-your-packagejson)** to switch to brotli compression or turn it off completely.
+<div class="aside note">
+By default, bundlesize tests gzipped sizes. You can use the **[compression option](https://github.com/siddharthkp/bundlesize#1-add-the-path-and-maxsize-in-your-packagejson)** to switch to brotli compression or turn it off completely.
+</div>
 
 ### Create a test script
 
 Since Travis needs a test to run, add a test script to `package.json`:
 
 <pre class="prettyprint">
-
 "scripts": {
     "start": "webpack && http-server -c-1",
     "test": "bundlesize"
@@ -69,21 +72,21 @@ First, create a new repository for this project on your GitHub account and initi
 
 You’ll need to [register an account on Travis](https://docs.travis-ci.com/user/tutorial) and activate GitHub Apps integration under the Settings section of your profile.
 
-![image alt text](travis-ci.png)
+![Travis CI](travis-ci.png)
 Once you have an account, go to Settings under your profile, hit the Sync account button, and make sure your new repo is listed on Travis.
 
-![image alt text](travis-ci-sync-button.png)
+![Travis CI Sync button](travis-ci-sync-button.png)
 
 ### Authorize bundlesize to post on pull requests
 
 Bundlesize needs authorization to be able to post on pull requests, so [visit this link to get the bundlesize token](https://github.com/login/oauth/authorize?scope=repo%3Astatus&client_id=6756cb03a8d6528aca5a) that will be stored in the Travis configuration. 
 
-![image alt text](bundlesize-token.jpg)
+![bundlesize token](bundlesize-token.jpg)
 
 In your project's Travis dashboard, go to More options > Settings > Environment variables.
 
 
-![image alt text](environment-variables.png)
+![Environment variables](environment-variables.png)
 
 Add a new environment variable with the token as the value field and BUNDLESIZE_GITHUB_TOKEN as the name. 
 
@@ -97,11 +100,11 @@ With this step, you’re all set up and bundlesize will warn you if your JavaScr
 
 To see how the app stacks up against the performance budget, add the code to the GitHub repo that you created in step 3. On Glitch, click your project name to go to Project options > Advanced options.
 
-![image alt text](advanced-options-button.png)
+![Glitch Advanced options button](advanced-options-button.png)
 
 In the Advanced options menu, select Export to GitHub.
 
-![image alt text](export-to-github-button.png)
+![Glitch Export to GitHub button](export-to-github-button.png)
 
 In the pop-up, enter your GitHub username and the name of the repo as "username/repo". 
 
@@ -109,11 +112,11 @@ Glitch will export your app to a new branch named glitch. Create a new pull requ
 
 You’ll now see status checks in progress on the pull request page.
 
-![image alt text](github-checks-in-progress.png)
+![Github checks in progress](github-checks-in-progress.png)
 
 It won’t take long until all checks are done. Unfortunately, the cat voting app is a bit bloated and does not pass the performance budget check. The main bundle is 266KB and the budget is 170KB. 
 
-![image alt text](failed-bundlesize-check.png)
+![Failed bundlesize check](failed-bundlesize-check.png)
 
 ### Optimize
 
@@ -134,7 +137,9 @@ import firebase from 'firebase/app';
 import 'firebase/database';
 </pre>
 
-Note: The `firebase/app` import, which sets up the API surface for each of the different services, is always required.
+<div class="aside note">
+The `firebase/app` import, which sets up the API surface for each of the different services, is always required.
+</div>
 
 ### Re-run test
 
@@ -142,11 +147,11 @@ Since the source file has been updated, you need to run webpack to build the new
 
 * Click the Logs button.
 
-![image alt text](logs-button.png)
+![glitch Logs button](logs-button.png)
 
 * Then click the Console button. 
 
-![image alt text](console-button.png)
+![Glitch Console](console-button.png)
 
 * In Glitch console, type <pre class="devsite-terminal devsite-click-to-copy">
 webpack</pre> and wait for it to finish the build.
@@ -155,7 +160,7 @@ webpack</pre> and wait for it to finish the build.
 
 * Go to the pull request page on GitHub and wait for all checks to finish.
 
-![image alt text](passed-bundlesize-check.png)
+![Passed budnlesize check](passed-bundlesize-check.png)
 
 Success! The new size of the bundle is 125.5KB and all the checks have passed. 🎉
 
