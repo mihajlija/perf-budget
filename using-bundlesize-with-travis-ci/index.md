@@ -1,4 +1,17 @@
-Using bundlesize with Travis CI
+---
+page_type: guide
+title: Using bundlesize with Travis CI
+author: mihajlija
+description: |
+  You’ve done hard work to get fast, now make sure you stay fast by automating
+  performance testing with Lighthouse CI.
+web_lighthouse: N/A
+web_updated_on: 2018-12-06
+web_published_on: 2018-11-05
+wf_blink_components: N/A
+---
+
+# Using bundlesize with Travis CI
 
 Using [bundlesize](https://github.com/siddharthkp/bundlesize) with [Travis CI](https://travis-ci.com/) lets you define performance budgets with minimal setup and enforce them as part of your development workflow. Travis CI is a service that runs tests for your app in the cloud every time you push code to GitHub. You can [configure your repository](https://help.github.com/articles/about-required-status-checks/) so that it won’t allow merging pull-requests unless the bundlesize tests have passed.
 
@@ -10,7 +23,7 @@ To see it in action, here’s an app bundled with [webpack](https://webpack.js.o
 
 ![image alt text](cat-voting-app.png)
 
-# Set the performance budget
+## Set the performance budget
 
 This Glitch already contains bundlesize. To start, click the Remix to Edit button to make the project editable.
 
@@ -19,35 +32,40 @@ This Glitch already contains bundlesize. To start, click the Remix to Edit butto
 
 The main bundle of this app is in the public folder. To test its size, add the following section to the package.json file:
 
+<pre class="prettyprint">
 "bundlesize": [
     {
       "path": "./public/*.bundle.js",
       "maxSize": "170 kB"
     }
   ]
+</pre>  
 
-*Note: You can also set **[different thresholds for different file*s](https://github.com/siddharthkp/bundlesize#1-add-the-path-and-maxsize-in-your-packagejson)*. This is especially useful if you are **[code-splittin*g](https://web.dev/fast/reduce-javascript-payloads-with-code-splitting)* a bundle in your application.*
+*Note: You can also set [different thresholds for different files](https://github.com/siddharthkp/bundlesize#1-add-the-path-and-maxsize-in-your-packagejson). This is especially useful if you are [code-splitting](https://web.dev/fast/reduce-javascript-payloads-with-code-splitting) a bundle in your application.
 
-To keep the compressed JavaScript bundle size [under the recommended limit](https://web.dev/fast/your-first-performance-budget#budget-for-quantity-based-metrics), set the performance budget to 170KB in the maxSize field. 
+To keep the compressed JavaScript bundle size [under the recommended limit](https://web.dev/fast/your-first-performance-budget#budget-for-quantity-based-metrics), set the performance budget to 170KB in the `maxSize` field. 
 
 Bundlesize supports [glob patterns](https://github.com/isaacs/node-glob) and the * wildcard character in the file path will match all bundle names in the public folder.
 
-*Note: By default, bundlesize tests gzipped sizes. You can use the **[compression optio*n](https://github.com/siddharthkp/bundlesize#1-add-the-path-and-maxsize-in-your-packagejson)* to switch to brotli compression or turn it off completely.*
+*Note: By default, bundlesize tests gzipped sizes. You can use the **[compression option](https://github.com/siddharthkp/bundlesize#1-add-the-path-and-maxsize-in-your-packagejson)** to switch to brotli compression or turn it off completely.
 
 ### Create a test script
 
-Since Travis needs a test to run, add a test script to package.json:
+Since Travis needs a test to run, add a test script to `package.json`:
+
+<pre class="prettyprint">
 
 "scripts": {
     "start": "webpack && http-server -c-1",
     "test": "bundlesize"
   }
+</pre>  
 
-# Set up continuous integration
+## Set up continuous integration
 
 ### Integrate GitHub and Travis CI
 
-First, create a new repository for this project on your GitHub account and initialize it with a README.md.
+First, create a new repository for this project on your GitHub account and initialize it with a `README.md`.
 
 You’ll need to [register an account on Travis](https://docs.travis-ci.com/user/tutorial) and activate GitHub Apps integration under the Settings section of your profile.
 
@@ -69,11 +87,11 @@ In your project's Travis dashboard, go to More options > Settings > Environment 
 
 Add a new environment variable with the token as the value field and BUNDLESIZE_GITHUB_TOKEN as the name. 
 
-The last thing needed to kick-off continuous integration is a .travis.yml file, which tells Travis CI what to do. To speed things up, it is already included in the project and it specifies that the app is using NodeJS. 
+The last thing needed to kick-off continuous integration is a `.travis.yml` file, which tells Travis CI what to do. To speed things up, it is already included in the project and it specifies that the app is using NodeJS. 
 
 With this step, you’re all set up and bundlesize will warn you if your JavaScript ever goes over the budget. Even when you start off great, over time, as you add new features, kilobytes can pile up. With automated performance budget monitoring, you can rest easy knowing that it won’t go unnoticed. 
 
-# Try it out
+## Try it out
 
 ### Trigger your first bundlesize test
 
@@ -99,20 +117,24 @@ It won’t take long until all checks are done. Unfortunately, the cat voting ap
 
 ### Optimize
 
-Luckily, there are some easy performance wins you can make by [removing unused code](https://web.dev/fast/remove-unused-code). There are two main imports in src/index.js:
+Luckily, there are some easy performance wins you can make by [removing unused code](https://web.dev/fast/remove-unused-code). There are two main imports in `src/index.js`:
 
+<pre class="prettyprint">
 import firebase from "firebase";
 import * as moment from 'moment';
+</pre>
 
 The app is using [Firebase Realtime Database](https://firebase.google.com/products/realtime-database/) to store the data, but it’s importing the entire firebase package which consists of a lot more than just a database (auth, storage, messaging etc.).
 
-Fix this by importing only the package that the app needs in the src/index.js file:
+Fix this by importing only the package that the app needs in the `src/index.js` file:
 
+<pre class="prettyprint">
 import firebase from "firebase";
 import firebase from 'firebase/app';
 import 'firebase/database';
+</pre>
 
-Note: The firebase/app import, which sets up the API surface for each of the different services, is always required.
+Note: The `firebase/app` import, which sets up the API surface for each of the different services, is always required.
 
 ### Re-run test
 
@@ -120,12 +142,14 @@ Since the source file has been updated, you need to run webpack to build the new
 
 * Click the Logs button.
 
-* ![image alt text](logs-button.png)
-Then click the Console button. 
+![image alt text](logs-button.png)
+
+* Then click the Console button. 
 
 ![image alt text](console-button.png)
 
-* In Glitch console, type webpack and wait for it to finish the build. 
+* In Glitch console, type <pre class="devsite-terminal devsite-click-to-copy">
+webpack</pre> and wait for it to finish the build.
 
 * Export the code to GitHub from Project options > Advanced options > Export to GitHub.
 
