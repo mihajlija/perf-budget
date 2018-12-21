@@ -22,7 +22,8 @@ You can also use bundlesize with [Circle CI](https://circleci.com/), [Wrecker](h
 
 To see it in action, here’s an app bundled with [webpack](https://webpack.js.org/) that lets you [vote for your favorite kitty](https://glitch.com/edit/#!/scarce-pixie). 
 
-![Cat voting app](cat-voting-app.png)
+
+<img class="screenshot" src="./cat-voting-app.png" alt="Cat voting app">
 
 ## Set the performance budget
 
@@ -51,7 +52,7 @@ To keep the compressed JavaScript bundle size [under the recommended limit](http
 Bundlesize supports [glob patterns](https://github.com/isaacs/node-glob) and the * wildcard character in the file path will match all bundle names in the public folder.
 
 <div class="aside note">
-By default, bundlesize tests gzipped sizes. You can use the [compression option](https://github.com/siddharthkp/bundlesize#1-add-the-path-and-maxsize-in-your-packagejson) to switch to brotli compression or turn it off completely.
+By default, bundlesize tests gzipped sizes. You can use the [compression option](https://github.com/siddharthkp/bundlesize#1-add-the-path-and-maxsize-in-your-packagejson) to switch to [brotli](https://en.wikipedia.org/wiki/Brotli) compression or turn it off completely.
 </div>
 
 ### Create a test script
