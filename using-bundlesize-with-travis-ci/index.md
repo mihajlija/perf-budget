@@ -23,7 +23,7 @@ You can also use bundlesize with [Circle CI](https://circleci.com/), [Wrecker](h
 To see it in action, here’s an app bundled with [webpack](https://webpack.js.org/) that lets you [vote for your favorite kitty](https://glitch.com/edit/#!/scarce-pixie). 
 
 
-<img class="screenshot" src="./cat-voting-app.png" alt="Cat voting app">
+<a href="https://glitch.com/edit/#!/scarce-pixie"><img class="screenshot" src="./cat-voting-app.png" alt="Cat voting app"></a>
 
 ## Set the performance budget
 
