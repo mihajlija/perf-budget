@@ -17,7 +17,9 @@ Using [bundlesize](https://github.com/siddharthkp/bundlesize) with [Travis CI](h
 
 ![bundlesize check](bundlesize-check.jpg)
 
-Note: You can also use bundlesize with [Circle CI](https://circleci.com/), [Wrecker](https://app.wercker.com) and [Drone](https://readme.drone.io/).
+<div class="aside note">
+You can also use bundlesize with [Circle CI](https://circleci.com/), [Wrecker](https://app.wercker.com) and [Drone](https://readme.drone.io/).
+</div>
 
 To see it in action, here’s an app bundled with [webpack](https://webpack.js.org/) that lets you vote for your favorite kitty. 
 
@@ -50,7 +52,7 @@ To keep the compressed JavaScript bundle size [under the recommended limit](http
 Bundlesize supports [glob patterns](https://github.com/isaacs/node-glob) and the * wildcard character in the file path will match all bundle names in the public folder.
 
 <div class="aside note">
-By default, bundlesize tests gzipped sizes. You can use the **[compression option](https://github.com/siddharthkp/bundlesize#1-add-the-path-and-maxsize-in-your-packagejson)** to switch to brotli compression or turn it off completely.
+By default, bundlesize tests gzipped sizes. You can use the [compression option](https://github.com/siddharthkp/bundlesize#1-add-the-path-and-maxsize-in-your-packagejson) to switch to brotli compression or turn it off completely.
 </div>
 
 ### Create a test script
@@ -73,6 +75,7 @@ First, create a new repository for this project on your GitHub account and initi
 You’ll need to [register an account on Travis](https://docs.travis-ci.com/user/tutorial) and activate GitHub Apps integration under the Settings section of your profile.
 
 ![Travis CI](travis-ci.png)
+
 Once you have an account, go to Settings under your profile, hit the Sync account button, and make sure your new repo is listed on Travis.
 
 ![Travis CI Sync button](travis-ci-sync-button.png)
