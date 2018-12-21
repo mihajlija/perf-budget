@@ -3,8 +3,7 @@ page_type: guide
 title: Using bundlesize with Travis CI
 author: mihajlija
 description: |
-  You’ve done hard work to get fast, now make sure you stay fast by automating
-  performance testing with Lighthouse CI.
+  Define performance budgets with minimal setup and enforce them as part of your development workflow using bundlesize with Travis CI.
 web_lighthouse: N/A
 web_updated_on: 2018-12-06
 web_published_on: 2018-11-05
@@ -171,5 +170,5 @@ Unlike Firebase, importing parts of the moment library cannot be done as easily,
 
 ### Monitor
 
-The app is now under the budget and all is well. Travis CI and bundlesize will keep monitoring the performance budget for you.
+The app is now under the budget and all is well. Travis CI and bundlesize will keep monitoring the performance budget for you, making sure your app stays fast.
 
